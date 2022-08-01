@@ -1,9 +1,30 @@
 import {useState, useEffect} from 'react';
-import {Box, Text, Flex, Button, Switch} from '@chakra-ui/react';
+import {
+	Box,
+	Flex,
+	Button,
+	useColorModeValue,
+	Menu,
+	MenuButton,
+	MenuList,
+	MenuItem,
+	IconButton,
+} from '@chakra-ui/react';
+import {useTranslation} from 'react-i18next';
+import {IoLanguageOutline} from 'react-icons/io5';
+import ReactCountryFlag from 'react-country-flag';
+MdOutlineDarkMode;
+import {
+	MdOutlineDarkMode,
+	MdOutlineLightMode,
+	MdOutlineFormatPaint,
+} from 'react-icons/md';
+
 import {HeaderButton} from '../HeaderButton';
 
 type Props = {
 	toggle: () => void;
+	colorMode: string;
 };
 
 const useScrollDirection = () => {
@@ -32,20 +53,48 @@ const useScrollDirection = () => {
 	return scrollDirection;
 };
 
-export const Header = ({toggle}: Props) => {
+export const Header = ({toggle, colorMode}: Props) => {
 	const scrollDirection = useScrollDirection();
+
+	const bgColor = useColorModeValue('alterPrimary', 'primaryDark');
+	const opacity = useColorModeValue('1', '0.9');
+	const fontLogoColor = useColorModeValue('alterPrimary', 'primaryDark');
+
+	const {t, i18n} = useTranslation();
+
+	const handleDarkTheme = () => {
+		if (colorMode === 'light') {
+			toggle();
+		}
+	};
+
+	const handleLightTheme = () => {
+		if (colorMode === 'dark') {
+			toggle();
+		}
+	};
+
+	const handleLanguagePTBR = () => {
+		i18n.changeLanguage('pt-BR');
+	};
+
+	const handleLanguageENUS = () => {
+		i18n.changeLanguage('en-US');
+	};
+
 	return (
 		<Flex
 			w="full"
 			h="5rem"
-			backgroundColor="mBlack"
+			backgroundColor={bgColor}
 			position="fixed"
 			top={scrollDirection === 'down' ? '-5rem' : '0rem'}
 			transition="all 0.3s linear"
 			justifyContent="space-between"
-			opacity="0.9"
+			opacity={opacity}
+			boxShadow="rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px"
 		>
-			<Button
+			<Button //icon logo
 				mt="1rem"
 				ml="1rem"
 				w="3rem"
@@ -56,7 +105,7 @@ export const Header = ({toggle}: Props) => {
 				alignItems="center"
 				borderWidth="1px"
 				borderColor="secondary"
-				bg="mBlack"
+				bg={bgColor}
 				fontFamily="Roboto"
 				fontSize="1.5rem"
 				fontWeight="700"
@@ -64,7 +113,10 @@ export const Header = ({toggle}: Props) => {
 				transition="all 0.5s linear"
 				_hover={{
 					bg: 'secondary',
-					color: 'mBlack',
+					color:
+						colorMode === 'light'
+							? 'alterPrimary'
+							: 'primaryDark',
 				}}
 				_active={{
 					bg: 'secondary',
@@ -75,11 +127,120 @@ export const Header = ({toggle}: Props) => {
 				GE
 			</Button>
 			<Box mt="1rem">
-				<HeaderButton title="Sobre" />
-				<HeaderButton title="Habilidades" />
-				<HeaderButton title="Projeto" />
-				<HeaderButton title="Contato" />
-				<Switch onChange={toggle} />
+				<HeaderButton colorMode={colorMode} title={t('about')} />
+				<HeaderButton
+					colorMode={colorMode}
+					title={t('abilities')}
+				/>
+				<HeaderButton colorMode={colorMode} title={t('contact')} />
+
+				<Menu>
+					<MenuButton
+						as={IconButton}
+						aria-label="Options"
+						variant="outline"
+						icon={<MdOutlineFormatPaint />}
+						marginRight="0.5rem"
+						color="#0288d1"
+						border="1px"
+						_hover={{
+							border: '1px',
+							color: 'secondary',
+						}}
+						_active={{
+							bg: 'secondary',
+							color:
+								colorMode === 'light'
+									? 'alterPrimary'
+									: 'primaryDark',
+							opacity: '0.8',
+							transition: 'all 0.05s linear',
+						}}
+						transition="all 0.3s linear"
+					/>
+					<MenuList bg={bgColor}>
+						<MenuItem
+							onClick={handleDarkTheme}
+							icon={<MdOutlineDarkMode />}
+							fontSize="0.9rem"
+							color="#0288d1"
+						>
+							Modo Escuro
+						</MenuItem>
+						<MenuItem
+							onClick={handleLightTheme}
+							icon={<MdOutlineLightMode />}
+							fontSize="0.9rem"
+							color="#0288d1"
+						>
+							Modo Claro
+						</MenuItem>
+					</MenuList>
+				</Menu>
+
+				<Menu>
+					<MenuButton
+						marginRight="2rem"
+						as={IconButton}
+						aria-label="Options"
+						icon={<IoLanguageOutline />}
+						variant="outline"
+						color="#0288d1"
+						border="1px"
+						_hover={{
+							border: '1px',
+							color: 'secondary',
+						}}
+						_active={{
+							bg: 'secondary',
+							color:
+								colorMode === 'light'
+									? 'alterPrimary'
+									: 'primaryDark',
+							opacity: '0.8',
+							transition: 'all 0.05s linear',
+						}}
+						transition="all 0.3s linear"
+					/>
+					<MenuList bg={bgColor}>
+						<MenuItem
+							onClick={handleLanguageENUS}
+							icon={
+								<ReactCountryFlag
+									countryCode="US"
+									svg
+									style={{
+										width: '1.5em',
+										height: '1.5em',
+									}}
+									title="US"
+								/>
+							}
+							fontSize="0.9rem"
+							color="#0288d1"
+						>
+							English
+						</MenuItem>
+						<MenuItem
+							onClick={handleLanguagePTBR}
+							icon={
+								<ReactCountryFlag
+									countryCode="BR"
+									svg
+									style={{
+										width: '1.5em',
+										height: '1.5em',
+									}}
+									title="BR"
+								/>
+							}
+							fontSize="0.9rem"
+							color="#0288d1"
+						>
+							Português
+						</MenuItem>
+					</MenuList>
+				</Menu>
 			</Box>
 		</Flex>
 	);
