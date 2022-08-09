@@ -7,6 +7,7 @@ import './i18n/index';
 
 // 2. Call `extendTheme` and pass your custom values
 const theme = extendTheme({
+	useSystemColorMode: true,
 	colors: {
 		primary: '#424242',
 		primaryLight: '#6d6d6d',
@@ -20,6 +21,8 @@ const theme = extendTheme({
 		alterSecondary: '#01579b',
 		alterSecondaryLight: '#4f83cc',
 		alterSecondaryDark: '#002f6c',
+		opacityBackgroundWhite: 'rgb(245, 245, 245, 0.85)',
+		opacityBackgroundDark: 'rgb(27, 27, 27, 0.85)',
 	},
 });
 

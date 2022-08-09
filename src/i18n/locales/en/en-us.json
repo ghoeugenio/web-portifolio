@@ -2,6 +2,10 @@
 	"translation": {
 		"abilities": "Abilities",
 		"about": "About",
-		"contact": "Contact"
+		"contact": "Contact",
+		"theme": "Theme",
+		"darkMode": "Dark mode",
+		"lightMode": "Light mode",
+		"language": "Language"
 	}
 }
