@@ -5,6 +5,8 @@ import {
 	Image,
 	useColorMode,
 	useColorModeValue,
+	Fade,
+	ScaleFade,
 } from '@chakra-ui/react';
 import {useHover} from '../../hooks';
 import Background from '../../assets/background.jpg';
@@ -61,13 +63,13 @@ export const Banner = ({isMobile}: Props) => {
 				</Text>
 
 				<Box
-					ref={hoverRef}
 					display="flex"
 					flexFlow={isMobile ? 'column' : 'row'}
-					bg="red"
 					minWidth="23.6rem" //width of all subtitle
 					mt="1.5rem"
 					mb="1rem"
+					alignItems="center"
+					ml={isMobile ? '0rem' : '2rem'}
 				>
 					<Text
 						fontFamily="Raleway"
@@ -77,24 +79,31 @@ export const Banner = ({isMobile}: Props) => {
 					>
 						Desenvolvedor
 					</Text>
-					{isHovered ? (
-						<Text
-							fontFamily="Raleway"
-							fontSize="1.5rem"
-							fontWeight="700"
-						>
-							Full Stack
-						</Text>
-					) : (
-						<Text
-							fontFamily="Raleway"
-							fontSize="1.5rem"
-							fontWeight="700"
-							transition="all 0.5s ease"
-						>
-							Back & Front End
-						</Text>
-					)}
+					<Box ref={hoverRef}>
+						{isHovered && !isMobile ? (
+							<Fade in={isHovered} unmountOnExit>
+								<Text
+									fontFamily="Raleway"
+									fontSize="1.5rem"
+									fontWeight="700"
+									color="alterSecondary"
+								>
+									Back & Front End
+								</Text>
+							</Fade>
+						) : (
+							<ScaleFade in={!isHovered || isMobile}>
+								<Text
+									fontFamily="Raleway"
+									fontSize="1.5rem"
+									fontWeight="700"
+									color="alterSecondary"
+								>
+									Full Stack
+								</Text>
+							</ScaleFade>
+						)}
+					</Box>
 				</Box>
 			</Box>
 		</Box>

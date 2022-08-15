@@ -56,12 +56,21 @@ const useScrollDirection = () => {
 };
 
 export const Header = ({toggle, colorMode, isMobile}: Props) => {
+	const [isOpenTheme, setIsOpenTheme] = useState(false);
+	const [isOpenLanguage, setIsOpenLanguage] = useState(false);
+
 	const scrollDirection = useScrollDirection();
 
 	const bgColor = useColorModeValue('alterPrimary', 'primaryDark');
-	const fontLogoColor = useColorModeValue('alterPrimary', 'primaryDark');
 
 	const {t, i18n} = useTranslation();
+
+	useEffect(() => {
+		if (scrollDirection === 'down') {
+			setIsOpenTheme(false);
+			setIsOpenLanguage(false);
+		}
+	}, [scrollDirection]);
 
 	const handleDarkTheme = () => {
 		if (colorMode === 'light') {
@@ -136,6 +145,7 @@ export const Header = ({toggle, colorMode, isMobile}: Props) => {
 					handleLightTheme={handleLightTheme}
 					handleLanguagePTBR={handleLanguagePTBR}
 					handleLanguageENUS={handleLanguageENUS}
+					scrollDirection={scrollDirection}
 				/>
 			) : (
 				<Box mt="1rem">
@@ -152,7 +162,11 @@ export const Header = ({toggle, colorMode, isMobile}: Props) => {
 						title={t('contact')}
 					/>
 
-					<Menu>
+					<Menu
+						onOpen={() => setIsOpenTheme(true)}
+						onClose={() => setIsOpenTheme(false)}
+						isOpen={isOpenTheme}
+					>
 						<MenuButton
 							as={IconButton}
 							aria-label="Options"
@@ -196,7 +210,11 @@ export const Header = ({toggle, colorMode, isMobile}: Props) => {
 						</MenuList>
 					</Menu>
 
-					<Menu>
+					<Menu
+						onOpen={() => setIsOpenLanguage(true)}
+						onClose={() => setIsOpenLanguage(false)}
+						isOpen={isOpenLanguage}
+					>
 						<MenuButton
 							marginRight="2rem"
 							as={IconButton}

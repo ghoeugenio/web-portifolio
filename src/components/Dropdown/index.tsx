@@ -1,3 +1,4 @@
+import {useEffect, useState} from 'react';
 import {
 	Box,
 	MenuGroup,
@@ -27,6 +28,7 @@ type Props = {
 	handleLightTheme: () => void;
 	handleLanguageENUS: () => void;
 	handleLanguagePTBR: () => void;
+	scrollDirection: string;
 };
 
 export const Dropdown = ({
@@ -36,11 +38,25 @@ export const Dropdown = ({
 	handleLightTheme,
 	handleLanguageENUS,
 	handleLanguagePTBR,
+	scrollDirection,
 }: Props) => {
 	const {t} = useTranslation();
+
+	const [isOpen, setIsOpen] = useState(false);
+
+	useEffect(() => {
+		if (scrollDirection === 'down') {
+			setIsOpen(false);
+		}
+	}, [scrollDirection]);
+
 	return (
 		<Box mt="1rem">
-			<Menu>
+			<Menu
+				onOpen={() => setIsOpen(true)}
+				onClose={() => setIsOpen(false)}
+				isOpen={isOpen}
+			>
 				<MenuButton
 					fontFamily="Raleway"
 					as={IconButton}

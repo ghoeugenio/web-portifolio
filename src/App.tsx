@@ -6,11 +6,11 @@ import {
 	useColorMode,
 	useColorModeValue,
 } from '@chakra-ui/react';
-import {Header} from './components/Header';
 import {useMediaQuery} from 'react-responsive';
-import Background from './assets/background.jpg';
-import {useEffect} from 'react';
+
+import {Header} from './components/Header';
 import {Banner} from './components/Banner';
+import {About} from './components/About';
 
 function App() {
 	const {colorMode, toggleColorMode} = useColorMode();
@@ -28,39 +28,7 @@ function App() {
 				isMobile={isMobile}
 			/>
 			<Banner isMobile={isMobile} />
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
-			<Text> Hello world</Text>
+			<About />
 		</Flex>
 	);
 }
