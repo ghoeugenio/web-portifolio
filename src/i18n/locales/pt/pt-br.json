@@ -6,6 +6,8 @@
 		"theme": "Tema",
 		"darkMode": "Modo escuro",
 		"lightMode": "Modo claro",
-		"language": "Idioma"
+		"language": "Idioma",
+		"titleBanner": "Olá, boas vindas ao meu website",
+		"subtitleBanner": "Desenvolvedor"
 	}
 }

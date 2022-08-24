@@ -1,4 +1,4 @@
-import {useState, useEffect, useRef, LegacyRef} from 'react';
+import {useState, useCallback, useEffect, useRef, LegacyRef} from 'react';
 
 export const useHover = <T>(): [LegacyRef<HTMLDivElement>, boolean] => {
 	const [value, setValue] = useState<boolean>(false);
@@ -17,4 +17,12 @@ export const useHover = <T>(): [LegacyRef<HTMLDivElement>, boolean] => {
 		}
 	}, [ref.current]);
 	return [ref, value];
+};
+
+export const useToggle = (initialState: boolean = false): [boolean, any] => {
+	const [state, setState] = useState<boolean>(initialState);
+
+	const toggle = useCallback((): void => setState((state) => !state), []);
+	console.log(state);
+	return [state, toggle];
 };

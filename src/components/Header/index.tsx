@@ -9,9 +9,9 @@ import {
 	MenuList,
 	MenuItem,
 	IconButton,
+	Text,
 } from '@chakra-ui/react';
 import {useTranslation} from 'react-i18next';
-import {useMediaQuery} from 'react-responsive';
 import {IoLanguageOutline} from 'react-icons/io5';
 import ReactCountryFlag from 'react-country-flag';
 import {
@@ -22,11 +22,15 @@ import {
 
 import {HeaderButton} from '../HeaderButton';
 import {Dropdown} from '../Dropdown';
+import {TextAnimation} from '../TextAnimation';
 
 type Props = {
 	toggle: () => void;
 	colorMode: string;
 	isMobile: boolean;
+	toogleTransitionText: () => void;
+	transitionText: boolean;
+	toogleTransitionTheme: () => void;
 };
 
 const useScrollDirection = () => {
@@ -55,7 +59,14 @@ const useScrollDirection = () => {
 	return scrollDirection;
 };
 
-export const Header = ({toggle, colorMode, isMobile}: Props) => {
+export const Header = ({
+	toggle,
+	colorMode,
+	isMobile,
+	toogleTransitionText,
+	transitionText,
+	toogleTransitionTheme,
+}: Props) => {
 	const [isOpenTheme, setIsOpenTheme] = useState(false);
 	const [isOpenLanguage, setIsOpenLanguage] = useState(false);
 
@@ -74,22 +85,42 @@ export const Header = ({toggle, colorMode, isMobile}: Props) => {
 
 	const handleDarkTheme = () => {
 		if (colorMode === 'light') {
-			toggle();
+			setTimeout(() => {
+				toogleTransitionTheme();
+				toggle();
+			}, 500);
+			toogleTransitionTheme();
 		}
 	};
 
 	const handleLightTheme = () => {
 		if (colorMode === 'dark') {
-			toggle();
+			setTimeout(() => {
+				toogleTransitionTheme();
+				toggle();
+			}, 500);
+			toogleTransitionTheme();
 		}
 	};
 
 	const handleLanguagePTBR = () => {
-		i18n.changeLanguage('pt-BR');
+		if (i18n.language !== 'pt-BR') {
+			setTimeout(() => {
+				toogleTransitionText();
+				i18n.changeLanguage('pt-BR');
+			}, 100);
+			toogleTransitionText();
+		}
 	};
 
 	const handleLanguageENUS = () => {
-		i18n.changeLanguage('en-US');
+		if (i18n.language !== 'en-US') {
+			setTimeout(() => {
+				toogleTransitionText();
+				i18n.changeLanguage('en-US');
+			}, 100);
+			toogleTransitionText();
+		}
 	};
 
 	return (
@@ -152,14 +183,17 @@ export const Header = ({toggle, colorMode, isMobile}: Props) => {
 					<HeaderButton
 						colorMode={colorMode}
 						title={t('about')}
+						transitionText={transitionText}
 					/>
 					<HeaderButton
 						colorMode={colorMode}
 						title={t('abilities')}
+						transitionText={transitionText}
 					/>
 					<HeaderButton
 						colorMode={colorMode}
 						title={t('contact')}
+						transitionText={transitionText}
 					/>
 
 					<Menu

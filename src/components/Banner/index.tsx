@@ -1,22 +1,14 @@
-import {
-	Box,
-	Text,
-	Flex,
-	Image,
-	useColorMode,
-	useColorModeValue,
-	Fade,
-	ScaleFade,
-} from '@chakra-ui/react';
+import {Box, Text, useColorModeValue, Fade, ScaleFade} from '@chakra-ui/react';
 import {useHover} from '../../hooks';
 import Background from '../../assets/background.jpg';
-//import './styles.css';
+import {TextAnimation} from '../TextAnimation';
 
 type Props = {
 	isMobile: boolean;
+	transitionText: boolean;
 };
 
-export const Banner = ({isMobile}: Props) => {
+export const Banner = ({isMobile, transitionText}: Props) => {
 	const bgBannerColor = useColorModeValue(
 		'opacityBackgroundWhite',
 		'opacityBackgroundDark'
@@ -33,7 +25,6 @@ export const Banner = ({isMobile}: Props) => {
 			flex="1"
 			justifyContent="center"
 			alignItems="center"
-			transition="background-color 200ms linear"
 		>
 			<Box
 				bg={bgBannerColor}
@@ -44,10 +35,16 @@ export const Banner = ({isMobile}: Props) => {
 				flexDirection="column"
 				alignItems="center"
 				whiteSpace="nowrap"
+				transition="background-color 200ms linear"
 			>
-				<Text fontFamily="Raleway" pt="2rem">
-					Olá, boas vindas ao meu website
-				</Text>
+				<TextAnimation
+					text="titleBanner"
+					transition={transitionText}
+					props={{
+						fontFamily: 'Raleway',
+						pt: '2rem',
+					}}
+				/>
 				<Text
 					fontFamily="Raleway"
 					fontSize={{
@@ -69,16 +66,18 @@ export const Banner = ({isMobile}: Props) => {
 					mt="1.5rem"
 					mb="1rem"
 					alignItems="center"
-					ml={isMobile ? '0rem' : '2rem'}
+					ml={isMobile ? '0rem' : '5rem'}
 				>
-					<Text
-						fontFamily="Raleway"
-						fontSize="1.5rem"
-						fontWeight="700"
-						mr="0.5rem"
-					>
-						Desenvolvedor
-					</Text>
+					<TextAnimation
+						text="subtitleBanner"
+						transition={transitionText}
+						props={{
+							fontFamily: 'Raleway',
+							fontSize: '1.5rem',
+							fontWeight: '700',
+							mr: '0.5rem',
+						}}
+					/>
 					<Box ref={hoverRef}>
 						{isHovered && !isMobile ? (
 							<Fade in={isHovered} unmountOnExit>

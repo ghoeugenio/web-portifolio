@@ -24,6 +24,16 @@ const theme = extendTheme({
 		opacityBackgroundWhite: 'rgb(245, 245, 245, 0.85)',
 		opacityBackgroundDark: 'rgb(27, 27, 27, 0.85)',
 	},
+	styles: {
+		global: {
+			'html, body': {
+				transitionProperty: 'background-color',
+				transitionDuration: 'normal',
+				lineHeight: 'base',
+			},
+		},
+	},
+	body: {},
 });
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

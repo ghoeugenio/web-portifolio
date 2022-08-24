@@ -1,11 +1,13 @@
 import {Button} from '@chakra-ui/react';
+import {TextAnimation} from '../TextAnimation';
 
 type Props = {
 	title: string;
 	colorMode: string;
+	transitionText: boolean;
 };
 
-export const HeaderButton = ({title, colorMode}: Props) => {
+export const HeaderButton = ({title, colorMode, transitionText}: Props) => {
 	return (
 		<Button
 			mr="0.75rem"
@@ -26,7 +28,10 @@ export const HeaderButton = ({title, colorMode}: Props) => {
 			}}
 			transition="all 0.3s linear"
 		>
-			{title}
+			<TextAnimation
+				transition={transitionText}
+				text={title}
+			></TextAnimation>
 		</Button>
 	);
 };
