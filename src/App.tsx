@@ -27,6 +27,8 @@ function App() {
 		query: '(max-width: 786px)',
 	});
 
+	console.log('test')
+
 	return (
 		<Flex w="full" flexDirection="column" bg={bgColor} transition="fade">
 			<Loading loading={transitionTheme} />
@@ -41,7 +43,7 @@ function App() {
 			<Banner isMobile={isMobile} transitionText={transitionText} />
 			<About />
 		</Flex>
-	);
+	); 
 }
 
 export default App;
