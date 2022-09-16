@@ -8,6 +8,9 @@
 		"lightMode": "Modo claro",
 		"language": "Idioma",
 		"titleBanner": "Olá, boas vindas ao meu website",
-		"subtitleBanner": "Desenvolvedor"
+		"subtitleBanner": "Desenvolvedor",
+		"biographyShow": "Mostrar biografia",
+		"biographyHide": "Ocultar biografia",
+		"biography": "Sou Gustavo Eugênio, desenvolvedor Full Stack na Luby Software e graduando em Engenharia de Computação na UFBA. Tenho 25 anos e atualmente moro em Salvador - Bahia. Sou apaixonado por tecnologia desde sempre e gosto de resolver problemas com soluções inovadoras e otimizadas. Gosto muito de estudar computação, do software ao hardware. Também preparo ótimos drinks, jogo League of Legends e faço musculação"
 	}
 }

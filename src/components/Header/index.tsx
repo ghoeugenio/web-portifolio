@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import {
 	Box,
 	Flex,
@@ -9,7 +9,6 @@ import {
 	MenuList,
 	MenuItem,
 	IconButton,
-	Text,
 } from '@chakra-ui/react';
 import {useTranslation} from 'react-i18next';
 import {IoLanguageOutline} from 'react-icons/io5';
@@ -20,18 +19,11 @@ import {
 	MdOutlineFormatPaint,
 } from 'react-icons/md';
 
+import {AppContext} from '../../context';
+import {ContextType} from '../../types';
+
 import {HeaderButton} from '../HeaderButton';
 import {Dropdown} from '../Dropdown';
-import {TextAnimation} from '../TextAnimation';
-
-type Props = {
-	toggle: () => void;
-	colorMode: string;
-	isMobile: boolean;
-	toogleTransitionText: () => void;
-	transitionText: boolean;
-	toogleTransitionTheme: () => void;
-};
 
 const useScrollDirection = () => {
 	const [scrollDirection, setScrollDirection] = useState<string>('');
@@ -59,14 +51,16 @@ const useScrollDirection = () => {
 	return scrollDirection;
 };
 
-export const Header = ({
-	toggle,
-	colorMode,
-	isMobile,
-	toogleTransitionText,
-	transitionText,
-	toogleTransitionTheme,
-}: Props) => {
+export const Header = () => {
+	const {
+		toggleTransitionTheme,
+		toggleColorMode,
+		colorMode,
+		isMobile,
+		toggleTransitionText,
+		transitionText,
+	} = useContext(AppContext) as ContextType;
+
 	const [isOpenTheme, setIsOpenTheme] = useState(false);
 	const [isOpenLanguage, setIsOpenLanguage] = useState(false);
 
@@ -86,40 +80,40 @@ export const Header = ({
 	const handleDarkTheme = () => {
 		if (colorMode === 'light') {
 			setTimeout(() => {
-				toogleTransitionTheme();
-				toggle();
+				toggleTransitionTheme();
+				toggleColorMode();
 			}, 500);
-			toogleTransitionTheme();
+			toggleTransitionTheme();
 		}
 	};
 
 	const handleLightTheme = () => {
 		if (colorMode === 'dark') {
 			setTimeout(() => {
-				toogleTransitionTheme();
-				toggle();
+				toggleTransitionTheme();
+				toggleColorMode();
 			}, 500);
-			toogleTransitionTheme();
+			toggleTransitionTheme();
 		}
 	};
 
 	const handleLanguagePTBR = () => {
 		if (i18n.language !== 'pt-BR') {
 			setTimeout(() => {
-				toogleTransitionText();
+				toggleTransitionText();
 				i18n.changeLanguage('pt-BR');
 			}, 100);
-			toogleTransitionText();
+			toggleTransitionText();
 		}
 	};
 
 	const handleLanguageENUS = () => {
 		if (i18n.language !== 'en-US') {
 			setTimeout(() => {
-				toogleTransitionText();
+				toggleTransitionText();
 				i18n.changeLanguage('en-US');
 			}, 100);
-			toogleTransitionText();
+			toggleTransitionText();
 		}
 	};
 

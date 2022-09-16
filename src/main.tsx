@@ -4,6 +4,7 @@ import {ChakraProvider} from '@chakra-ui/react';
 import App from './App';
 import {extendTheme} from '@chakra-ui/react';
 import './i18n/index';
+import AppProvider from './context';
 
 // 2. Call `extendTheme` and pass your custom values
 const theme = extendTheme({
@@ -39,7 +40,9 @@ const theme = extendTheme({
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	<React.StrictMode>
 		<ChakraProvider theme={theme}>
-			<App />
+			<AppProvider>
+				<App />
+			</AppProvider>
 		</ChakraProvider>
 	</React.StrictMode>
 );

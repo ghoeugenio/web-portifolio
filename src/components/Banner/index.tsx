@@ -1,14 +1,16 @@
 import {Box, Text, useColorModeValue, Fade, ScaleFade} from '@chakra-ui/react';
+import {useContext} from 'react';
+
+import {AppContext} from '../../context';
+import {ContextType} from '../../types';
+
 import {useHover} from '../../hooks';
 import Background from '../../assets/background.jpg';
 import {TextAnimation} from '../TextAnimation';
 
-type Props = {
-	isMobile: boolean;
-	transitionText: boolean;
-};
+export const Banner = () => {
+	const {isMobile, transitionText} = useContext(AppContext) as ContextType;
 
-export const Banner = ({isMobile, transitionText}: Props) => {
 	const bgBannerColor = useColorModeValue(
 		'opacityBackgroundWhite',
 		'opacityBackgroundDark'

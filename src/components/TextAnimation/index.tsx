@@ -5,13 +5,21 @@ type Props = {
 	text: string;
 	transition: boolean;
 	props?: TextProps;
+	children?: React.ReactNode;
 };
 
-export const TextAnimation = ({text, transition, props}: Props) => {
+export const TextAnimation = ({text, transition, props, children}: Props) => {
 	const {t} = useTranslation();
 
 	return (
-		<Fade in={!transition}>
+		<Fade
+			in={!transition}
+			style={{
+				display: 'flex',
+				flexDirection: 'row',
+			}}
+		>
+			{children}
 			<Text {...props}>{t(text)}</Text>
 		</Fade>
 	);

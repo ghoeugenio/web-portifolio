@@ -1,13 +1,14 @@
 import {Box, Spinner} from '@chakra-ui/react';
-import Profile from '../../assets/profile.jpg';
-type Props = {
-	loading: boolean;
-};
+import {useContext} from 'react';
+import {AppContext} from '../../context';
+import {ContextType} from '../../types';
 
-export const Loading = ({loading}: Props) => {
+export const Loading = () => {
+	const {transitionTheme} = useContext(AppContext) as ContextType;
+
 	return (
 		<>
-			{loading && (
+			{transitionTheme && (
 				<Box
 					zIndex="100"
 					position="fixed"
