@@ -1,8 +1,16 @@
-import {Box, Button, Image, useDisclosure, Collapse} from '@chakra-ui/react';
-import {useContext} from 'react';
+import {
+	Box,
+	Button,
+	Image,
+	useDisclosure,
+	Collapse,
+	useColorModeValue,
+} from '@chakra-ui/react';
+import {useContext, useState, useEffect} from 'react';
 import {
 	MdAccountCircle,
 	MdArrowDropDown,
+	MdArrowDropUp,
 	MdLocationOn,
 	MdSchool,
 	MdWork,
@@ -16,17 +24,34 @@ import {TextAnimation} from '../TextAnimation';
 import Profile from '../../assets/profile.jpg';
 
 export const About = () => {
-	const {isMobile, transitionText} = useContext(AppContext) as ContextType;
+	const {isMobile, transitionText, colorMode} = useContext(
+		AppContext
+	) as ContextType;
 
 	const {isOpen, onToggle} = useDisclosure();
+
+	const [color, setColor] = useState(
+		colorMode === 'light' ? 'alterPrimary' : 'primaryDark'
+	);
+	const bgColor = useColorModeValue('alterPrimary', 'primaryDark');
+
+	useEffect(() => {
+		colorMode === 'light'
+			? setColor('primaryDark')
+			: setColor('alterPrimary');
+	}, [colorMode]);
+
 	return (
 		<Box
-			display="flex "
+			display="flex"
 			flex="1"
-			bg="primaryDark"
-			marginX={isMobile ? '2rem' : '15rem'}
+			bg={bgColor}
+			marginX={isMobile ? '5rem' : '15rem'}
 			mt="2rem"
 			borderRadius="1rem"
+			flexDirection={isMobile ? 'column' : 'row'}
+			alignItems={isMobile ? 'center' : 'stretch'}
+			minWidth={isMobile ? '0rem' : '27rem'}
 		>
 			<Image
 				src={Profile}
@@ -41,7 +66,7 @@ export const About = () => {
 					<Button
 						mt="2rem"
 						onClick={onToggle}
-						rightIcon={<MdArrowDropDown />}
+						rightIcon={<MdArrowDropUp color={color} />}
 						bg="transparent"
 						_hover={{
 							bg: 'transparent',
@@ -55,6 +80,7 @@ export const About = () => {
 							transition={transitionText}
 							props={{
 								fontFamily: 'Raleway',
+								color: color,
 							}}
 						/>
 					</Button>
@@ -62,11 +88,12 @@ export const About = () => {
 				{!isOpen && (
 					<Box transition="text 0s opacity">
 						<TextAnimation
-							text="Gustavo Eugênio"
+							text="name"
 							transition={transitionText}
 							props={{
 								fontFamily: 'Raleway',
 								pt: '2rem',
+								color: color,
 							}}
 						>
 							<MdAccountCircle
@@ -75,14 +102,16 @@ export const About = () => {
 									marginTop: '1.75rem',
 									marginRight: '0.5rem',
 								}}
+								color={color}
 							/>
 						</TextAnimation>
 						<TextAnimation
-							text="Luby software"
+							text="work"
 							transition={transitionText}
 							props={{
 								fontFamily: 'Raleway',
 								pt: '1rem',
+								color: color,
 							}}
 						>
 							<MdWork
@@ -91,14 +120,16 @@ export const About = () => {
 									marginTop: '0.75rem',
 									marginRight: '0.5rem',
 								}}
+								color={color}
 							/>
 						</TextAnimation>
 						<TextAnimation
-							text="Engenharia de Computação"
+							text="course"
 							transition={transitionText}
 							props={{
 								fontFamily: 'Raleway',
 								pt: '1rem',
+								color: color,
 							}}
 						>
 							<MdSchool
@@ -107,14 +138,16 @@ export const About = () => {
 									marginTop: '0.75rem',
 									marginRight: '0.5rem',
 								}}
+								color={color}
 							/>
 						</TextAnimation>
 						<TextAnimation
-							text="Boquira - Bahia"
+							text="locale"
 							transition={transitionText}
 							props={{
 								fontFamily: 'Raleway',
 								pt: '1rem',
+								color: color,
 							}}
 						>
 							<MdLocationOn
@@ -123,6 +156,7 @@ export const About = () => {
 									marginTop: '0.75rem',
 									marginRight: '0.5rem',
 								}}
+								color={color}
 							/>
 						</TextAnimation>
 					</Box>
@@ -145,6 +179,7 @@ export const About = () => {
 								transition={transitionText}
 								props={{
 									fontFamily: 'Raleway',
+									color: color,
 								}}
 							/>
 						</Button>
@@ -158,6 +193,7 @@ export const About = () => {
 									fontFamily: 'Raleway',
 									pt: '1.2rem',
 									mr: '1rem',
+									color: color,
 								}}
 							/>
 						</Box>

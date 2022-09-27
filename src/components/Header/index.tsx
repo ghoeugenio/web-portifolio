@@ -127,7 +127,7 @@ export const Header = () => {
 			top={scrollDirection === 'down' ? '-5rem' : '0rem'}
 			transition="all 0.3s linear"
 			justifyContent="space-between"
-			opacity="0.9"
+			opacity="0.98"
 			boxShadow="rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px"
 		>
 			<Button //icon logo
