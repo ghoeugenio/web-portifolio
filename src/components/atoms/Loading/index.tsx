@@ -1,7 +1,7 @@
 import {Box, Spinner} from '@chakra-ui/react';
 import {useContext} from 'react';
-import {AppContext} from '../../context';
-import {ContextType} from '../../types';
+import {AppContext} from '../../../context';
+import {ContextType} from '../../../types';
 
 export const Loading = () => {
 	const {transitionTheme} = useContext(AppContext) as ContextType;

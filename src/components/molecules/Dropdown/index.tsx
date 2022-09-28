@@ -19,7 +19,7 @@ import {
 	MdMenu,
 } from 'react-icons/md';
 
-import {HeaderButton} from '../HeaderButton';
+import {HeaderButton} from '../../atoms/HeaderButton';
 
 type Props = {
 	bgColor: string;

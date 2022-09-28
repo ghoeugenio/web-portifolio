@@ -16,12 +16,12 @@ import {
 	MdWork,
 } from 'react-icons/md';
 
-import {AppContext} from '../../context';
-import {ContextType} from '../../types';
+import {AppContext} from '../../../context';
+import {ContextType} from '../../../types';
 
-import {TextAnimation} from '../TextAnimation';
+import {TextAnimation} from '../../atoms/TextAnimation';
 
-import Profile from '../../assets/profile.jpg';
+import Profile from '../../../assets/profile.jpg';
 
 export const About = () => {
 	const {isMobile, transitionText, colorMode} = useContext(

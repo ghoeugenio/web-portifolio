@@ -1,15 +1,15 @@
-import {Container} from './components/Container';
-import {Header} from './components/Header';
-import {Banner} from './components/Banner';
-import {About} from './components/About';
-import {Loading} from './components/Loading';
+import {Container} from './components/organisms/Container';
+import {Header} from './components/molecules/Header';
+import {Home} from './components/organisms/Home';
+import {About} from './components/organisms/About';
+import {Loading} from './components/atoms/Loading';
 
 function App() {
 	return (
 		<Container>
 			<Loading />
 			<Header />
-			<Banner />
+			<Home />
 			<About />
 		</Container>
 	);

@@ -19,10 +19,10 @@ import {
 	MdOutlineFormatPaint,
 } from 'react-icons/md';
 
-import {AppContext} from '../../context';
-import {ContextType} from '../../types';
+import {AppContext} from '../../../context';
+import {ContextType} from '../../../types';
 
-import {HeaderButton} from '../HeaderButton';
+import {HeaderButton} from '../../atoms/HeaderButton';
 import {Dropdown} from '../Dropdown';
 
 const useScrollDirection = () => {

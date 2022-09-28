@@ -1,8 +1,8 @@
 import {Flex} from '@chakra-ui/react';
 import {useContext} from 'react';
 
-import {AppContext} from '../../context';
-import {ContextType, Props} from '../../types';
+import {AppContext} from '../../../context';
+import {ContextType, Props} from '../../../types';
 
 export const Container = ({children}: Props) => {
 	const {bgColor} = useContext(AppContext) as ContextType;
