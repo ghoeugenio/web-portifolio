@@ -181,7 +181,13 @@ export const Header = () => {
 					/>
 					<HeaderButton
 						colorMode={colorMode}
-						title={t('abilities')}
+						title={t('skills')}
+						transitionText={transitionText}
+					/>
+
+					<HeaderButton
+						colorMode={colorMode}
+						title={t('experience')}
 						transitionText={transitionText}
 					/>
 					<HeaderButton

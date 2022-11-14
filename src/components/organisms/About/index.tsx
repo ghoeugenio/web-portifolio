@@ -5,6 +5,7 @@ import {
 	useDisclosure,
 	Collapse,
 	useColorModeValue,
+	Link,
 } from '@chakra-ui/react';
 import {useContext, useState, useEffect} from 'react';
 import {
@@ -18,10 +19,8 @@ import {
 
 import {AppContext} from '../../../context';
 import {ContextType} from '../../../types';
-
 import {TextAnimation} from '../../atoms/TextAnimation';
-
-import Profile from '../../../assets/profile.jpg';
+import Profile from '../../../assets/profile.png';
 
 export const About = () => {
 	const {isMobile, transitionText, colorMode} = useContext(
@@ -42,130 +41,39 @@ export const About = () => {
 	}, [colorMode]);
 
 	return (
-		<Box
-			display="flex"
-			flex="1"
-			bg={bgColor}
-			marginX={isMobile ? '5rem' : '15rem'}
-			mt="2rem"
-			borderRadius="1rem"
-			flexDirection={isMobile ? 'column' : 'row'}
-			alignItems={isMobile ? 'center' : 'stretch'}
-			minWidth={isMobile ? '0rem' : '27rem'}
-		>
-			<Image
-				src={Profile}
-				w={isMobile ? '8rem' : '12rem'}
-				h={isMobile ? '8rem' : '12rem'}
-				ml="2rem"
+		<Box bgGradient="linear(to-b, primaryDark, primary)">
+			<Box
+				display="flex"
+				bg={bgColor}
+				marginX={isMobile ? '5rem' : '15rem'}
 				mt="2rem"
+				mb="2rem"
 				borderRadius="1rem"
-			/>
-			<Box ml="2rem">
-				{isOpen && (
-					<Button
-						mt="2rem"
-						onClick={onToggle}
-						rightIcon={<MdArrowDropUp color={color} />}
-						bg="transparent"
-						_hover={{
-							bg: 'transparent',
-						}}
-						_active={{
-							bg: 'transparent',
-						}}
-					>
-						<TextAnimation
-							text="biographyHide"
-							transition={transitionText}
-							props={{
-								fontFamily: 'Raleway',
-								color: color,
-							}}
-						/>
-					</Button>
-				)}
-				{!isOpen && (
-					<Box transition="text 0s opacity">
-						<TextAnimation
-							text="name"
-							transition={transitionText}
-							props={{
-								fontFamily: 'Raleway',
-								pt: '2rem',
-								color: color,
-							}}
-						>
-							<MdAccountCircle
-								size={24}
-								style={{
-									marginTop: '1.75rem',
-									marginRight: '0.5rem',
-								}}
-								color={color}
-							/>
-						</TextAnimation>
-						<TextAnimation
-							text="work"
-							transition={transitionText}
-							props={{
-								fontFamily: 'Raleway',
-								pt: '1rem',
-								color: color,
-							}}
-						>
-							<MdWork
-								size={24}
-								style={{
-									marginTop: '0.75rem',
-									marginRight: '0.5rem',
-								}}
-								color={color}
-							/>
-						</TextAnimation>
-						<TextAnimation
-							text="course"
-							transition={transitionText}
-							props={{
-								fontFamily: 'Raleway',
-								pt: '1rem',
-								color: color,
-							}}
-						>
-							<MdSchool
-								size={24}
-								style={{
-									marginTop: '0.75rem',
-									marginRight: '0.5rem',
-								}}
-								color={color}
-							/>
-						</TextAnimation>
-						<TextAnimation
-							text="locale"
-							transition={transitionText}
-							props={{
-								fontFamily: 'Raleway',
-								pt: '1rem',
-								color: color,
-							}}
-						>
-							<MdLocationOn
-								size={24}
-								style={{
-									marginTop: '0.75rem',
-									marginRight: '0.5rem',
-								}}
-								color={color}
-							/>
-						</TextAnimation>
-					</Box>
-				)}
-				<Box transition="text 0s opacity">
-					{!isOpen && (
+				flexDirection={isMobile ? 'column' : 'row'}
+				alignItems={isMobile ? 'initial' : 'stretch'}
+				minWidth={isMobile ? '10rem' : '27rem'}
+				minHeight={isMobile ? '20rem' : '15rem'}
+				maxHeight={
+					isOpen ? '100rem' : !isMobile ? '15rem' : '30rem'
+				}
+				overflow={isOpen && isMobile ? 'none' : 'hidden'}
+			>
+				<Image
+					src={Profile}
+					w={isMobile ? '8rem' : '12rem'}
+					h={isMobile ? '8rem' : '12rem'}
+					ml="2rem"
+					mt="2rem"
+					borderRadius="1rem"
+					alignSelf="center"
+					minWidth={isMobile ? '8rem' : '12rem'}
+				/>
+				<Box ml="2rem">
+					{isOpen && (
 						<Button
+							mt="2rem"
 							onClick={onToggle}
-							rightIcon={<MdArrowDropDown />}
+							rightIcon={<MdArrowDropUp color={color} />}
 							bg="transparent"
 							_hover={{
 								bg: 'transparent',
@@ -175,29 +83,138 @@ export const About = () => {
 							}}
 						>
 							<TextAnimation
-								text="biographyShow"
+								text="biographyHide"
 								transition={transitionText}
 								props={{
 									fontFamily: 'Raleway',
 									color: color,
+									fontWeight: 'medium',
 								}}
 							/>
 						</Button>
 					)}
-					<Collapse in={isOpen} animateOpacity>
-						<Box>
+					{!isOpen && (
+						<Box transition="text 0s opacity">
 							<TextAnimation
-								text="biography"
+								text="name"
 								transition={transitionText}
 								props={{
 									fontFamily: 'Raleway',
-									pt: '1.2rem',
-									mr: '1rem',
+									pt: '2rem',
 									color: color,
+									fontWeight: 'medium',
 								}}
-							/>
+							>
+								<MdAccountCircle
+									size={24}
+									style={{
+										marginTop: '1.75rem',
+										marginRight: '0.5rem',
+									}}
+									color={color}
+								/>
+							</TextAnimation>
+							<Link href="https://luby.com.br/" isExternal>
+								<TextAnimation
+									text="work"
+									transition={transitionText}
+									props={{
+										fontFamily: 'Raleway',
+										pt: '1rem',
+										color: color,
+										fontWeight: 'medium',
+									}}
+								>
+									<MdWork
+										size={24}
+										style={{
+											marginTop: '0.75rem',
+											marginRight: '0.5rem',
+										}}
+										color={color}
+									/>
+								</TextAnimation>
+							</Link>
+							<TextAnimation
+								text="course"
+								transition={transitionText}
+								props={{
+									fontFamily: 'Raleway',
+									pt: '1rem',
+									color: color,
+									fontWeight: 'medium',
+								}}
+							>
+								<MdSchool
+									size={24}
+									style={{
+										marginTop: '0.75rem',
+										marginRight: '0.5rem',
+									}}
+									color={color}
+								/>
+							</TextAnimation>
+							<TextAnimation
+								text="locale"
+								transition={transitionText}
+								props={{
+									fontFamily: 'Raleway',
+									pt: '1rem',
+									color: color,
+									fontWeight: 'medium',
+								}}
+							>
+								<MdLocationOn
+									size={24}
+									style={{
+										marginTop: '0.75rem',
+										marginRight: '0.5rem',
+									}}
+									color={color}
+								/>
+							</TextAnimation>
 						</Box>
-					</Collapse>
+					)}
+					<Box transition="text 0s opacity">
+						{!isOpen && (
+							<Button
+								onClick={onToggle}
+								rightIcon={<MdArrowDropDown />}
+								bg="transparent"
+								_hover={{
+									bg: 'transparent',
+								}}
+								_active={{
+									bg: 'transparent',
+								}}
+							>
+								<TextAnimation
+									text="biographyShow"
+									transition={transitionText}
+									props={{
+										fontFamily: 'Raleway',
+										color: color,
+										fontWeight: 'medium',
+									}}
+								/>
+							</Button>
+						)}
+						<Collapse in={isOpen} animateOpacity>
+							<Box>
+								<TextAnimation
+									text="biography"
+									transition={transitionText}
+									props={{
+										fontFamily: 'Raleway',
+										pt: '1.2rem',
+										mr: '1rem',
+										color: color,
+										fontWeight: 'medium',
+									}}
+								/>
+							</Box>
+						</Collapse>
+					</Box>
 				</Box>
 			</Box>
 		</Box>

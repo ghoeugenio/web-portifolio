@@ -1,8 +1,9 @@
 {
 	"translation": {
-		"abilities": "Abilities",
+		"skills": "Skills",
 		"about": "About",
-		"contact": "Contact",
+		"contact": "Social",
+		"experience": "Experience",
 		"theme": "Theme",
 		"darkMode": "Dark mode",
 		"lightMode": "Light mode",
@@ -15,6 +16,13 @@
 		"work": "Luby Software",
 		"course": "Computer Engineering",
 		"locale": "Boquira - Bahia",
-		"biography": "I'm Gustavo Eugênio, Júnior developer at Luby Software and graduating in Computer Engineering at UFBA. I am 25 years old and currently live in Salvador - Bahia. I have always been passionate about technology and like to solve problems with innovative and optimized solutions. I really enjoy studying computing, from software to hardware. Also make great drinks, play League of Legends and workout."
+		"biography": "I'm Gustavo Eugênio, Júnior developer at Luby Software and graduating in Computer Engineering at UFBA. I am 25 years old and currently live in Salvador - Bahia. I have always been passionate about technology and like to solve problems with innovative and optimized solutions. I really enjoy studying computing, from software to hardware. Also make great drinks, play League of Legends and workout.",
+		"languages": "Languages",
+		"others": "Others",
+		"pinguim": "Travel social network",
+		"visiteagora": "Rent and sale of real estate.",
+		"amigo": "Internet provider",
+		"passfactory": "Loyalty app for companies and services",
+		"by": "Designed and developed by Gustavo Eugênio"
 	}
 }

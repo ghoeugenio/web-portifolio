@@ -95,7 +95,7 @@ export const Dropdown = ({
 							fontSize="0.9rem"
 							fontWeight="600"
 						>
-							{t('abilities')}{' '}
+							{t('skills')}{' '}
 						</MenuItem>
 						<MenuItem
 							fontFamily="Raleway"

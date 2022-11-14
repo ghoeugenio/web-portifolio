@@ -1,8 +1,9 @@
 {
 	"translation": {
-		"abilities": "Habilidades",
+		"skills": "Habilidades",
 		"about": "Sobre",
-		"contact": "Contato",
+		"contact": "Social",
+		"experience": "Experiência",
 		"theme": "Tema",
 		"darkMode": "Modo escuro",
 		"lightMode": "Modo claro",
@@ -15,6 +16,13 @@
 		"work": "Luby Software",
 		"course": "Engenharia de Computação",
 		"locale": "Boquira - Bahia",
-		"biography": "Sou Gustavo Eugênio, Desenvolvedor Júnior na Luby Software e graduando em Engenharia de Computação na UFBA. Tenho 25 anos e atualmente moro em Salvador - Bahia. Sou apaixonado por tecnologia desde sempre e gosto de resolver problemas com soluções inovadoras e otimizadas. Gosto muito de estudar computação, do software ao hardware. Também preparo ótimos drinks, jogo League of Legends e faço musculação."
+		"biography": "Sou Gustavo Eugênio, Desenvolvedor Júnior na Luby Software e graduando em Engenharia de Computação na UFBA. Tenho 25 anos e atualmente moro em Salvador - Bahia. Sou apaixonado por tecnologia desde sempre e gosto de resolver problemas com soluções inovadoras e otimizadas. Gosto muito de estudar computação, do software ao hardware. Também preparo ótimos drinks, jogo League of Legends e faço musculação.",
+		"languages": "Linguagens",
+		"others": "Outros",
+		"pinguim": "Rede social de viagens",
+		"visiteagora": "Aluguel e venda de imóveis",
+		"amigo": "Provedor de internet",
+		"passfactory": "App de fidelidade em empresas e serviços",
+		"by": "Desenhado e desenvolvido por Gustavo Eugênio"
 	}
 }
