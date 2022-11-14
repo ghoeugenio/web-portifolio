@@ -53,7 +53,7 @@ export const Skills = () => {
 				<Box>
 					<Accordion
 						defaultIndex={[0]}
-						minWidth={isMobile ? '17rem' : '27rem'}
+						minWidth={isMobile ? '12rem' : '27rem'}
 					>
 						<AccordionItem>
 							<AccordionButton>
