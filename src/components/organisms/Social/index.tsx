@@ -39,7 +39,7 @@ export const Social = () => {
 				mb="2rem"
 				borderRadius="1rem"
 				marginX={isMobile ? '5rem' : '25rem'}
-				minWidth={isMobile ? '0rem' : '35rem'}
+				minWidth={isMobile ? '0rem' : '25rem'}
 				minHeight="10rem"
 			>
 				<TextAnimation
