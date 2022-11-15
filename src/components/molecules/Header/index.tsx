@@ -159,6 +159,9 @@ export const Header = () => {
 					opacity: '0.8',
 					transform: 'scale(1.5)',
 				}}
+				onClick={() =>
+					window.scrollTo({top: 0, behavior: 'smooth'})
+				}
 			>
 				GE
 			</Button>
@@ -178,22 +181,46 @@ export const Header = () => {
 						colorMode={colorMode}
 						title={t('about')}
 						transitionText={transitionText}
+						onClick={() =>
+							window.scrollTo({
+								top: 550,
+								behavior: 'smooth',
+							})
+						}
 					/>
 					<HeaderButton
 						colorMode={colorMode}
 						title={t('skills')}
 						transitionText={transitionText}
+						onClick={() =>
+							window.scrollTo({
+								top: 1000,
+								behavior: 'smooth',
+							})
+						}
 					/>
 
 					<HeaderButton
 						colorMode={colorMode}
 						title={t('experience')}
 						transitionText={transitionText}
+						onClick={() =>
+							window.scrollTo({
+								top: 1500,
+								behavior: 'smooth',
+							})
+						}
 					/>
 					<HeaderButton
 						colorMode={colorMode}
 						title={t('contact')}
 						transitionText={transitionText}
+						onClick={() =>
+							window.scrollTo({
+								top: 2200,
+								behavior: 'smooth',
+							})
+						}
 					/>
 
 					<Menu

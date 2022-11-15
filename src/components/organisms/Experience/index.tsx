@@ -22,13 +22,7 @@ import {TextAnimation} from '../../atoms/TextAnimation';
 
 export const Experience = () => {
 	const bgColor = useColorModeValue('alterPrimary', 'primaryDark');
-	const {isMobile, transitionText, colorMode} = useContext(
-		AppContext
-	) as ContextType;
-	const background = useColorModeValue(
-		'alterPrimaryDark',
-		'opacityBackgroundDark'
-	);
+	const {isMobile, transitionText} = useContext(AppContext) as ContextType;
 
 	return (
 		<Box bgGradient="linear(to-b, primaryLight, alterSecondaryLight)">
@@ -41,7 +35,7 @@ export const Experience = () => {
 				mt="2rem"
 				mb="2rem"
 				borderRadius="1rem"
-				marginX={isMobile ? '5rem' : '20rem'}
+				marginX={isMobile ? '2rem' : '20rem'}
 				minWidth={isMobile ? '0rem' : '35rem'}
 				minHeight="20rem"
 			>
@@ -165,7 +159,7 @@ export const Experience = () => {
 							<Box
 								bg="primary"
 								pt="1rem"
-								px="1rem"
+								px="0.5rem"
 								borderRadius="5"
 								_hover={{
 									bg: 'primaryLight',
@@ -177,6 +171,7 @@ export const Experience = () => {
 									fontSize="2rem"
 									color="orange"
 									fontWeight="bold"
+									textAlign="center"
 								>
 									Geometry War
 								</Text>

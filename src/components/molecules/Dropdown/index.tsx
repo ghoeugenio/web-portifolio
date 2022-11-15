@@ -87,6 +87,12 @@ export const Dropdown = ({
 							fontFamily="Raleway"
 							fontSize="0.9rem"
 							fontWeight="600"
+							onClick={() =>
+								window.scrollTo({
+									top: 700,
+									behavior: 'smooth',
+								})
+							}
 						>
 							{t('about')}
 						</MenuItem>
@@ -94,15 +100,40 @@ export const Dropdown = ({
 							fontFamily="Raleway"
 							fontSize="0.9rem"
 							fontWeight="600"
+							onClick={() =>
+								window.scrollTo({
+									top: 1180,
+									behavior: 'smooth',
+								})
+							}
 						>
-							{t('skills')}{' '}
+							{t('skills')}
 						</MenuItem>
 						<MenuItem
 							fontFamily="Raleway"
 							fontSize="0.9rem"
 							fontWeight="600"
+							onClick={() =>
+								window.scrollTo({
+									top: 1950,
+									behavior: 'smooth',
+								})
+							}
 						>
-							{t('contact')}{' '}
+							{t('experience')}
+						</MenuItem>
+						<MenuItem
+							fontFamily="Raleway"
+							fontSize="0.9rem"
+							fontWeight="600"
+							onClick={() =>
+								window.scrollTo({
+									top: 3000,
+									behavior: 'smooth',
+								})
+							}
+						>
+							{t('contact')}
 						</MenuItem>
 					</MenuGroup>
 					<MenuDivider />

@@ -5,9 +5,15 @@ type Props = {
 	title: string;
 	colorMode: string;
 	transitionText: boolean;
+	onClick: () => void;
 };
 
-export const HeaderButton = ({title, colorMode, transitionText}: Props) => {
+export const HeaderButton = ({
+	title,
+	colorMode,
+	transitionText,
+	onClick,
+}: Props) => {
 	return (
 		<Button
 			mr="0.75rem"
@@ -27,6 +33,7 @@ export const HeaderButton = ({title, colorMode, transitionText}: Props) => {
 				transition: 'all 0.05s linear',
 			}}
 			transition="all 0.3s linear"
+			onClick={onClick}
 		>
 			<TextAnimation
 				transition={transitionText}

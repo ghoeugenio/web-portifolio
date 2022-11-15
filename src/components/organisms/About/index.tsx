@@ -45,7 +45,7 @@ export const About = () => {
 			<Box
 				display="flex"
 				bg={bgColor}
-				marginX={isMobile ? '5rem' : '15rem'}
+				marginX={isMobile ? '3rem' : '15rem'}
 				mt="2rem"
 				mb="2rem"
 				borderRadius="1rem"
@@ -62,7 +62,7 @@ export const About = () => {
 					src={Profile}
 					w={isMobile ? '8rem' : '12rem'}
 					h={isMobile ? '8rem' : '12rem'}
-					ml="2rem"
+					ml={isMobile ? '0rem' : '2rem'}
 					mt="2rem"
 					borderRadius="1rem"
 					alignSelf="center"

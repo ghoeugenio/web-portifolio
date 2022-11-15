@@ -5,6 +5,7 @@ import {
 	AccordionItem,
 	AccordionPanel,
 	Box,
+	Image,
 	Text,
 	useColorModeValue,
 } from '@chakra-ui/react';
@@ -36,7 +37,7 @@ export const Skills = () => {
 				mt="2rem"
 				mb="2rem"
 				borderRadius="1rem"
-				marginX={isMobile ? '5rem' : '25rem'}
+				marginX={isMobile ? '2rem' : '25rem'}
 				minWidth={isMobile ? '0rem' : '27rem'}
 			>
 				<TextAnimation
@@ -53,7 +54,8 @@ export const Skills = () => {
 				<Box>
 					<Accordion
 						defaultIndex={[0]}
-						minWidth={isMobile ? '12rem' : '27rem'}
+						minWidth={isMobile ? '17rem' : '27rem'}
+						mb="1rem"
 					>
 						<AccordionItem>
 							<AccordionButton>
@@ -88,13 +90,15 @@ export const Skills = () => {
 												width="2rem"
 												mr="1rem"
 											>
-												<img
+												<Image
 													src={item.src}
+													alt="X"
 												/>
 											</Box>
 											<Text
 												fontFamily="Raleway"
 												fontWeight="medium"
+												mr="1rem"
 											>
 												{item.skill}
 											</Text>
@@ -140,13 +144,15 @@ export const Skills = () => {
 												width="2rem"
 												mr="1rem"
 											>
-												<img
+												<Image
 													src={item.src}
+													alt="X"
 												/>
 											</Box>
 											<Text
 												fontFamily="Raleway"
 												fontWeight="medium"
+												mr="1rem"
 											>
 												{item.skill}
 											</Text>
@@ -192,13 +198,15 @@ export const Skills = () => {
 												width="2rem"
 												mr="1rem"
 											>
-												<img
+												<Image
 													src={item.src}
+													alt="X"
 												/>
 											</Box>
 											<Text
 												fontFamily="Raleway"
 												fontWeight="medium"
+												mr="1rem"
 											>
 												{item.skill}
 											</Text>
@@ -244,13 +252,15 @@ export const Skills = () => {
 												width="2rem"
 												mr="1rem"
 											>
-												<img
+												<Image
 													src={item.src}
+													alt="X"
 												/>
 											</Box>
 											<Text
 												fontFamily="Raleway"
 												fontWeight="medium"
+												mr="1rem"
 											>
 												{item.skill}
 											</Text>
