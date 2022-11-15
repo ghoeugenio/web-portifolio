@@ -115,7 +115,7 @@ export const Dropdown = ({
 							fontWeight="600"
 							onClick={() =>
 								window.scrollTo({
-									top: 1950,
+									top: 1670,
 									behavior: 'smooth',
 								})
 							}
