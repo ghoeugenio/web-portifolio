@@ -61,6 +61,7 @@ export const Experience = () => {
               color: "secondary",
               fontSize: "2rem",
               fontWeight: "bold",
+              textAlign: "center",
             }}
           />
           <Box flexDir={isMobile ? "column" : "row"} display="flex">
@@ -134,6 +135,7 @@ export const Experience = () => {
             fontSize: "2rem",
             color: "secondary",
             fontWeight: "bold",
+            textAlign: "center",
           }}
         />
         <Box

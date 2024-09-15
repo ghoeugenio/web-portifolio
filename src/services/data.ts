@@ -269,4 +269,8 @@ export const experienceData = [
     name: "Multicleaner",
     description: "multicleaner",
   },
+  {
+    name: "Bridgestone",
+    description: "bridgestone",
+  },
 ];

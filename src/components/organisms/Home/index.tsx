@@ -38,7 +38,7 @@ export const Home = () => {
         bg={bgBannerColor}
         borderRadius="20"
         justifyContent="center"
-        width={isMobile ? "25rem" : "40rem"}
+        minWidth={isMobile ? "20rem" : "40rem"}
         display="flex"
         flexDirection="column"
         alignItems="center"
@@ -70,7 +70,7 @@ export const Home = () => {
         <Box
           display="flex"
           flexFlow={isMobile ? "column" : "row"}
-          minWidth="23.6rem" //width of all subtitle
+          minWidth={isMobile ? "10rem" : "23.6rem"}
           mt="1.5rem"
           mb="1rem"
           alignItems="center"
