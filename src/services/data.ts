@@ -17,7 +17,7 @@ export const expertData = [
   {
     skill: "Expo",
     rating: 5,
-    src: "https://creazilla-store.fra1.digitaloceanspaces.com/icons/3243981/expo-icon-md.png",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/expo/expo-original.svg",
   },
   {
     skill: "Next",
@@ -121,7 +121,7 @@ export const skillsData = [
   {
     skill: "AWS",
     rating: 4,
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original.svg",
   },
 ];
 
@@ -154,7 +154,7 @@ export const languageData = [
   {
     skill: "C",
     rating: 4,
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-plain.svg",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
   },
   {
     skill: "C++",
@@ -232,7 +232,7 @@ export const othersData = [
   {
     skill: "Virtual DJ",
     rating: 3,
-    src: "https://seeklogo.com/images/V/virtual-dj-logo-D732C6E2D4-seeklogo.com.png",
+    src: "https://images.seeklogo.com/logo-png/29/1/virtual-dj-logo-png_seeklogo-297834.png",
   },
 ];
 

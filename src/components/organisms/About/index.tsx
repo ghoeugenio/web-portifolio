@@ -20,7 +20,7 @@ import {
 import { AppContext } from "../../../context";
 import { ContextType } from "../../../types";
 import { TextAnimation } from "../../atoms/TextAnimation";
-import Profile from "../../../assets/profile.png";
+import Profile from "../../../assets/profile.webp";
 
 export const About = () => {
   const { isMobile, transitionText, colorMode } = useContext(
